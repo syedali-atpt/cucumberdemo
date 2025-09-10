@@ -1,0 +1,11 @@
+#ignores eclipse and ide files
+.classpath
+.project
+.settings/
+
+#ignore build outputs
+target/
+build/
+
+
+
