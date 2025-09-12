@@ -12,6 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty", "html:target/htmlreport/report.html" },
 //		dryRun = false
 		monochrome = true
+//		tags = "@Smoke"
 
 )	
 

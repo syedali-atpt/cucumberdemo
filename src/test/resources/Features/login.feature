@@ -9,7 +9,7 @@
 #And connecting two statements
 #But error msg or negative testing
 Feature: To test the login functionality of orangehrm app
-
+	
   Scenario: User should be able to login with valid credentials
     Given User should open chrome browser
     And User should be navigated to orange hrm launch page

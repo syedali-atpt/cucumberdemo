@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageobjects.DashboardPageObjects;
 import pageobjects.LoginPageObjects;
 
 public class Login2 {
@@ -15,6 +16,7 @@ public class Login2 {
 	WebDriver driver;
 	WebElement dashboard;
 	LoginPageObjects lo;
+	DashboardPageObjects dp;
 
 	@Given("User should open chrome browser")
 	public void user_should_open_chrome_browser() {
@@ -52,21 +54,14 @@ public class Login2 {
 
 	@Then("User should navigate to dashboard page")
 	public void user_should_navigate_to_dashboard_page() {
-		dashboard = driver.findElement(By.xpath("//h6[text()='Dashboard']"));
-		if(dashboard.isDisplayed()) {
-			System.out.println("User navigated successfully to dashboard");
-		}else {
-			System.out.println("User is on this page"+driver.getTitle());
-		}
+		dp = new DashboardPageObjects(driver);
+		dp.verifyDashboard();
 	}
 
 	@Then("User logout of app and close the chrome browser")
 	public void user_logout_of_app_and_close_the_chrome_browser() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//img[@alt=\"profile picture\"][@class=\"oxd-userdropdown-img\"]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.linkText("Logout")).click();
-		
+		dp.clickLogout();
 		driver.quit();
 
 	}

@@ -15,9 +15,9 @@ public class LoginPageObjects {
 		this.driver = driver;
 	}
 
-	By username = By.xpath("//input[@placeholder='Username']");
-	By password = By.xpath("//input[@placeholder='Password']");
-	By loginBtn = By.xpath("//button[@type='submit']");
+	private By username = By.xpath("//input[@placeholder='Username']");
+	private By password = By.xpath("//input[@placeholder='Password']");
+	private By loginBtn = By.xpath("//button[@type='submit']");
 	
 
 	public void setUsername(String x) {
