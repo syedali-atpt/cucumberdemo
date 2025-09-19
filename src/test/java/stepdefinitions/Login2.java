@@ -24,15 +24,17 @@ public class Login2 {
 	LoginPageObjects lo;
 	DashboardPageObjects dp;
 	TestContextSetup testContextSetup;
-	
+
 	public Login2(TestContextSetup testContextSetup) {
 		this.testContextSetup = testContextSetup;
 	}
 
 	@Given("User should open chrome browser")
 	public void user_should_open_chrome_browser() {
-		WebDriverManager.chromedriver().setup();
-		testContextSetup.driver = new ChromeDriver();
+//		WebDriverManager.chromedriver().setup();
+//		testContextSetup.driver = new ChromeDriver();
+//		testContextSetup.testBase.WebDriverManager();
+		testContextSetup.testBase.WebdriverManager();
 	}
 
 	@Given("User should be navigated to orange hrm launch page")
@@ -43,7 +45,8 @@ public class Login2 {
 
 	@When("^User enters valid username (.*)$")
 	public void user_enters_valid_username(String username) {
-		lo = new LoginPageObjects(testContextSetup.driver);
+//		lo = new LoginPageObjects(testContextSetup.driver);
+		lo = testContextSetup.pageObjectManager.getLoginPageObjects();
 		lo.setUsername(username);
 	}
 

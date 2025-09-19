@@ -1,12 +1,19 @@
 package utilities;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import pageobjects.PageObjectManager;
 
 public class TestContextSetup {
 
 	public WebDriver driver;
-	public WebElement dashboard;
-	
+	public PageObjectManager pageObjectManager;
+	public TestBase testBase;
+
+	public TestContextSetup() {
+		testBase = new TestBase();
+		driver = testBase.WebdriverManager();
+		pageObjectManager = new PageObjectManager(driver);
+	}
 
 }

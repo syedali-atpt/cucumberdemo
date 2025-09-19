@@ -12,7 +12,6 @@ public class DashBoardSteps {
 
 	WebDriver driver;
 	WebElement dashboard;
-	LoginPageObjects lo;
 	DashboardPageObjects dp;
 	TestContextSetup testContextSetup;
 
@@ -22,7 +21,8 @@ public class DashBoardSteps {
 
 	@Then("User should navigate to dashboard page")
 	public void user_should_navigate_to_dashboard_page() {
-		dp = new DashboardPageObjects(testContextSetup.driver);
+//		dp = new DashboardPageObjects(testContextSetup.driver);
+		dp = testContextSetup.pageObjectManager.getDashboardPageObjects(); 
 		dp.verifyDashboard();
 	}
 
@@ -42,5 +42,6 @@ public class DashBoardSteps {
 	@Then("User verify System Users is displayed")
 	public void user_verify_system_users_is_displayed() throws InterruptedException {
 		dp.verfiySystemUsers();
+		testContextSetup.driver.quit();
 	}
 }
